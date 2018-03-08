@@ -33,10 +33,17 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-tomcat</artifactId>
-			<!-- scope设置为provided，表明该包时在编译和测试时候用 -->
+			<!-- scope设置为provided，表明该包时在编译和测试时候用，不去掉的话，Run方式启动不了 -->
 			<!--<scope>provided</scope>-->
 		</dependency>
 
+		<!-- 热部署依赖包 -->
+		<!--<dependency>-->
+			<!--<groupId>org.springframework.boot</groupId>-->
+			<!--<artifactId>spring-boot-devtools</artifactId>-->
+			<!--&lt;!&ndash; 表示依赖不会传递 &ndash;&gt;-->
+			<!--<optional>true</optional>-->
+		<!--</dependency>-->
 
 		<dependency>
 			<groupId>io.springfox</groupId>
@@ -62,6 +69,10 @@
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
+				<configuration>
+					<!-- 如果没有该配置，devtools不会发挥作用 -->
+					<fork>true</fork>
+				</configuration>
 			</plugin>
 		</plugins>
 	</build>

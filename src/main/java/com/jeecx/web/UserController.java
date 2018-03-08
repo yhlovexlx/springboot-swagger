@@ -41,7 +41,7 @@ public class UserController {
     @ApiImplicitParam(name = "id", value = "用户ID", required = true, dataType = "Integer", paramType = "path")
     @RequestMapping(value = "user/{id}",method = RequestMethod.GET)
     public User getUserById(@PathVariable("id") Integer id){
-
+//        System.out.println("2222");
         return users.get(id);
 
     }
